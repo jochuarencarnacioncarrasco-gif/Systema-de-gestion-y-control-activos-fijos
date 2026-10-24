@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Dashboard Principal";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h3 class="fw-bold text-dark m-0">Dashboard Principal</h3>
+        <p class="text-muted small m-0">Resumen general y métricas del sistema de activos fijos.</p>
+    </div>
+</div>
+
+<!-- TARJETAS DE RESUMEN (KPIs) -->
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm bg-primary text-white p-3 rounded-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="text-uppercase mb-1 fs-7 opacity-75">Total Activos</h6>
+                    <h2 class="fw-bold mb-0">0</h2>
+                </div>
+                <i class="bi bi-box-seam fs-1 opacity-50"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm bg-warning text-dark p-3 rounded-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="text-uppercase mb-1 fs-7 opacity-75">En Mantenimiento</h6>
+                    <h2 class="fw-bold mb-0">0</h2>
+                </div>
+                <i class="bi bi-tools fs-1 opacity-50"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm bg-success text-white p-3 rounded-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="text-uppercase mb-1 fs-7 opacity-75">Activos Asignados</h6>
+                    <h2 class="fw-bold mb-0">0</h2>
+                </div>
+                <i class="bi bi-person-check fs-1 opacity-50"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm bg-info text-white p-3 rounded-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="text-uppercase mb-1 fs-7 opacity-75">Ubicaciones</h6>
+                    <h2 class="fw-bold mb-0">0</h2>
+                </div>
+                <i class="bi bi-geo-alt fs-1 opacity-50"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SECCIÓN DE MOVIMIENTOS Y ACCIONES -->
+<div class="row g-4">
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-sm p-4 rounded-3 bg-white">
+            <h5 class="fw-bold text-dark mb-3"><i class="bi bi-clock-history me-2 text-primary"></i>Últimos Movimientos de Activos</h5>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Código</th>
+                            <th>Activo</th>
+                            <th>Ubicación</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4" class="text-center text-muted py-4">No hay registros recientes para mostrar.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card border-0 shadow-sm p-4 rounded-3 bg-white">
+            <h5 class="fw-bold text-dark mb-3"><i class="bi bi-lightning-charge me-2 text-warning"></i>Acciones Rápidas</h5>
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-primary text-start p-2"><i class="bi bi-plus-circle me-2"></i> Registrar Nuevo Activo</button>
+                <button class="btn btn-outline-secondary text-start p-2"><i class="bi bi-arrow-left-right me-2"></i> Transferir Activo</button>
+                <button class="btn btn-outline-warning text-dark text-start p-2"><i class="bi bi-wrench me-2"></i> Solicitar Mantenimiento</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Iniciar Sesión";
+    Layout = null; // Esto quita el menú superior y el footer predeterminados
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sistema de Gestión</title>
+    <!-- Estilos de Bootstrap del proyecto -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="bg-light d-flex align-items-center justify-content-center vh-100">
+
+    <div class="container">
+        <!-- Título de bienvenida superior -->
+        <div class="text-center mb-4">
+            <h1 class="fw-bold text-primary">¡Bienvenido!</h1>
+            <p class="text-muted fs-5">Sistema de Gestión y Control de Activos Fijos</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-4">
+                        <h4 class="card-title text-center mb-4 fw-semibold text-secondary">Iniciar Sesión</h4>
+
+                        <form asp-controller="Login" asp-action="Index" method="post">
+                            <div class="mb-3">
+                                <label class="form-label fw-medium">Usuario / Correo</label>
+                                <input type="text" name="usuario" class="form-control" required placeholder="Ingrese su usuario" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-medium">Contraseña</label>
+                                <input type="password" name="password" class="form-control" required placeholder="Ingrese su contraseña" />
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg">Ingresar</button>
+                            </div>
+
+                            @if (ViewBag.Error != null)
+                            {
+                                <div class="alert alert-danger mt-3 text-center py-2" role="alert">
+                                    @ViewBag.Error
+                                </div>
+                            }
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
