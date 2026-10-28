@@ -72,6 +72,9 @@ namespace Systema_de_gestion_y_control_activos_fijos.Migrations
 
                     b.HasIndex("CategoriaId");
 
+                    b.HasIndex("CodigoInventario")
+                        .IsUnique();
+
                     b.HasIndex("EstadoId");
 
                     b.HasIndex("ProveedorId");

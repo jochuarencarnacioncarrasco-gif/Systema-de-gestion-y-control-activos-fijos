@@ -4,13 +4,14 @@
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
-        <h3 class="fw-bold text-dark m-0">Dashboard Principal</h3>
-        <p class="text-muted small m-0">Resumen general y métricas del sistema de activos fijos.</p>
+        <h3 class="fw-bold text-dark m-0">Dashboard General</h3>
+        <p class="text-muted small m-0">Monitoreo y trazabilidad de los activos fijos de la institución educativa.</p>
     </div>
 </div>
 
-<!-- TARJETAS DE RESUMEN (KPIs) -->
+<!-- TARJETAS DE INDICADORES (KPIs) -->
 <div class="row g-4 mb-4">
+    <!-- Total Activos (RF-01) -->
     <div class="col-md-3">
         <div class="card border-0 shadow-sm bg-primary text-white p-3 rounded-3">
             <div class="d-flex justify-content-between align-items-center">
@@ -23,6 +24,7 @@
         </div>
     </div>
 
+    <!-- En Mantenimiento (RF-03) -->
     <div class="col-md-3">
         <div class="card border-0 shadow-sm bg-warning text-dark p-3 rounded-3">
             <div class="d-flex justify-content-between align-items-center">
@@ -35,11 +37,12 @@
         </div>
     </div>
 
+    <!-- Activos Asignados (RF-02) -->
     <div class="col-md-3">
         <div class="card border-0 shadow-sm bg-success text-white p-3 rounded-3">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <h6 class="text-uppercase mb-1 fs-7 opacity-75">Activos Asignados</h6>
+                    <h6 class="text-uppercase mb-1 fs-7 opacity-75">Asignados / Prestados</h6>
                     <h2 class="fw-bold mb-0">0</h2>
                 </div>
                 <i class="bi bi-person-check fs-1 opacity-50"></i>
@@ -47,37 +50,42 @@
         </div>
     </div>
 
+    <!-- Depreciación / Bajas (RF-05) -->
     <div class="col-md-3">
-        <div class="card border-0 shadow-sm bg-info text-white p-3 rounded-3">
+        <div class="card border-0 shadow-sm bg-danger text-white p-3 rounded-3">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <h6 class="text-uppercase mb-1 fs-7 opacity-75">Ubicaciones</h6>
+                    <h6 class="text-uppercase mb-1 fs-7 opacity-75">Bajas / Depreciados</h6>
                     <h2 class="fw-bold mb-0">0</h2>
                 </div>
-                <i class="bi bi-geo-alt fs-1 opacity-50"></i>
+                <i class="bi bi-graph-down-arrow fs-1 opacity-50"></i>
             </div>
         </div>
     </div>
 </div>
 
-<!-- SECCIÓN DE MOVIMIENTOS Y ACCIONES -->
+<!-- SECCIÓN DE MOVIMIENTOS RECIENTES Y ACCIONES RÁPIDAS -->
 <div class="row g-4">
+    <!-- Tabla de Trazabilidad de Movimientos (RF-02) -->
     <div class="col-lg-8">
         <div class="card border-0 shadow-sm p-4 rounded-3 bg-white">
-            <h5 class="fw-bold text-dark mb-3"><i class="bi bi-clock-history me-2 text-primary"></i>Últimos Movimientos de Activos</h5>
+            <h5 class="fw-bold text-dark mb-3">
+                <i class="bi bi-clock-history me-2 text-primary"></i>Últimos Movimientos Registrados
+            </h5>
             <div class="table-responsive">
                 <table class="table table-hover align-middle">
                     <thead class="table-light">
                         <tr>
                             <th>Código</th>
                             <th>Activo</th>
-                            <th>Ubicación</th>
+                            <th>Tipo (Asig/Traslado)</th>
+                            <th>Ubicación Destino</th>
                             <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td colspan="4" class="text-center text-muted py-4">No hay registros recientes para mostrar.</td>
+                            <td colspan="5" class="text-center text-muted py-4">No hay movimientos recientes registrados en el sistema.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -85,13 +93,28 @@
         </div>
     </div>
 
+    <!-- Panel de Accesos Directos Basado en Requerimientos -->
     <div class="col-lg-4">
         <div class="card border-0 shadow-sm p-4 rounded-3 bg-white">
-            <h5 class="fw-bold text-dark mb-3"><i class="bi bi-lightning-charge me-2 text-warning"></i>Acciones Rápidas</h5>
+            <h5 class="fw-bold text-dark mb-3">
+                <i class="bi bi-lightning-charge me-2 text-warning"></i>Acciones Rápidas
+            </h5>
             <div class="d-grid gap-2">
-                <button class="btn btn-outline-primary text-start p-2"><i class="bi bi-plus-circle me-2"></i> Registrar Nuevo Activo</button>
-                <button class="btn btn-outline-secondary text-start p-2"><i class="bi bi-arrow-left-right me-2"></i> Transferir Activo</button>
-                <button class="btn btn-outline-warning text-dark text-start p-2"><i class="bi bi-wrench me-2"></i> Solicitar Mantenimiento</button>
+                <a href="#" class="btn btn-outline-primary text-start p-2">
+                    <i class="bi bi-plus-circle me-2"></i> Registrar Nuevo Activo <small class="text-muted d-block ms-4">(RF-01)</small>
+                </a>
+                <a href="#" class="btn btn-outline-secondary text-start p-2">
+                    <i class="bi bi-arrow-left-right me-2"></i> Registrar Movimiento <small class="text-muted d-block ms-4">(RF-02)</small>
+                </a>
+                <a href="#" class="btn btn-outline-warning text-dark text-start p-2">
+                    <i class="bi bi-tools me-2"></i> Reportar Falla / Mant. <small class="text-muted d-block ms-4">(RF-03)</small>
+                </a>
+                <a href="#" class="btn btn-outline-success text-start p-2">
+                    <i class="bi bi-clipboard-check me-2"></i> Conciliar Inventario <small class="text-muted d-block ms-4">(RF-06)</small>
+                </a>
+                <a href="#" class="btn btn-outline-dark text-start p-2">
+                    <i class="bi bi-file-earmark-pdf me-2"></i> Generar Reportes PDF/Excel <small class="text-muted d-block ms-4">(RF-07)</small>
+                </a>
             </div>
         </div>
     </div>

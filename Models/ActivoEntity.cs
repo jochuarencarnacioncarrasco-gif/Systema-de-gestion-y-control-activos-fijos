@@ -3,8 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Systema_de_gestion_y_control_activos_fijos.Models
 {
+
+    
     public class ActivoEntity
+
     {
+
         [Key]
         public int Id { get; set; }
 

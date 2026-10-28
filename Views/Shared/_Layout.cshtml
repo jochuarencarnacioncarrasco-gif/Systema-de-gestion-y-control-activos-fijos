@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Control de Activos Fijos</title>
+    <title>@ViewData["Title"] - Control de Activos Fijos Escolares</title>
     
     <!-- Bootstrap 5 CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -12,22 +12,18 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
         body {
             margin: 0;
             padding: 0;
             background-color: #f4f6f9;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .app-container {
-            display: flex;
-            min-height: 100vh;
-        }
-        /* SIDEBAR IZQUIERDO ESTILO DASHBOARD PRO */
+        .app-container { display: flex; min-height: 100vh; }
+        
+        /* SIDEBAR IZQUIERDO PRO CON SCROLL */
         .app-sidebar {
-            width: 260px;
+            width: 280px;
             background-color: #1e1e2d;
             color: #a2a3b7;
             display: flex;
@@ -42,46 +38,64 @@
         }
         .sidebar-brand {
             padding: 20px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: bold;
             color: #ffffff;
             background-color: #181824;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
         .sidebar-menu {
             padding: 15px 10px;
             overflow-y: auto;
             flex: 1;
+            max-height: calc(100vh - 160px);
         }
+        
+        /* Estilo personalizado para la barra de desplazamiento del menú */
+        .sidebar-menu::-webkit-scrollbar {
+            width: 6px;
+        }
+        .sidebar-menu::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        .sidebar-menu::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+        .sidebar-menu::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
         .menu-category {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #565674;
-            margin: 20px 10px 10px 10px;
+            margin: 18px 10px 8px 10px;
             font-weight: 700;
         }
         .sidebar-item {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 12px 15px;
+            padding: 10px 15px;
             color: #c4c5d6;
             text-decoration: none;
             border-radius: 8px;
-            margin-bottom: 4px;
-            font-size: 0.9rem;
+            margin-bottom: 3px;
+            font-size: 0.88rem;
             transition: all 0.2s ease;
         }
         .sidebar-item:hover, .sidebar-item.active {
             background-color: #3699ff;
             color: #ffffff;
         }
+        
         /* CONTENEDOR PRINCIPAL */
         .app-main {
-            margin-left: 260px;
+            margin-left: 280px;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -99,10 +113,7 @@
             top: 0;
             z-index: 99;
         }
-        .app-content {
-            padding: 30px;
-            flex: 1;
-        }
+        .app-content { padding: 30px; flex: 1; }
         .user-info {
             display: flex;
             align-items: center;
@@ -116,48 +127,69 @@
 <body>
 
     <div class="app-container">
-        
-        <!-- BARRA LATERAL IZQUIERDA -->
+        <!-- SIDEBAR -->
         <nav class="app-sidebar">
             <div>
                 <div class="sidebar-brand">
-                    <i class="bi bi-shield-lock-fill text-primary fs-4"></i>
-                    <span>Control Activos</span>
+                    <i class="bi bi-mortarboard-fill text-primary fs-4"></i>
+                    <span>SGAF Escolar</span>
                 </div>
                 
+                <!-- Menú con Scroll Vertical Habilitado -->
                 <div class="sidebar-menu">
                     <a href="/Home/Index" class="sidebar-item active">
                         <i class="bi bi-grid-1x2-fill fs-5"></i>
                         <span>Dashboard</span>
                     </a>
 
-                    <div class="menu-category">Gestión de Activos</div>
-                    <a href="#" class="sidebar-item">
-                        <i class="bi bi-box-seam fs-5"></i>
-                        <span>Activos Fijos</span>
-                    </a>
+                  <a href="/Activos/Index" class="sidebar-item">
+    <i class="bi bi-box-seam fs-5"></i>
+    <span>Catálogo de Activos</span>
+</a>
                     <a href="#" class="sidebar-item">
                         <i class="bi bi-tags fs-5"></i>
                         <span>Categorías</span>
                     </a>
                     <a href="#" class="sidebar-item">
                         <i class="bi bi-geo-alt fs-5"></i>
-                        <span>Ubicaciones</span>
+                        <span>Ubicaciones Escolares</span>
                     </a>
 
                     <div class="menu-category">Operaciones</div>
                     <a href="#" class="sidebar-item">
-                        <i class="bi bi-person-check fs-5"></i>
-                        <span>Asignaciones</span>
-                    </a>
-                    <a href="#" class="sidebar-item">
-                        <i class="bi bi-tools fs-5"></i>
-                        <span>Mantenimiento</span>
+                        <i class="bi bi-arrow-left-right fs-5"></i>
+                        <span>Movimientos (Asig/Tras)</span>
                     </a>
 
-                    <div class="menu-category">Administración</div>
+                    <div class="menu-category">Mantenimiento</div>
                     <a href="#" class="sidebar-item">
-                        <i class="bi bi-people fs-5"></i>
+                        <i class="bi bi-tools fs-5"></i>
+                        <span>Órdenes de Fallas</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="bi bi-clock-history fs-5"></i>
+                        <span>Historial y Costos</span>
+                    </a>
+
+                    <div class="menu-category">Control y Finanzas</div>
+                    <a href="#" class="sidebar-item">
+                        <i class="bi bi-graph-down-arrow fs-5"></i>
+                        <span>Depreciación y Bajas</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="bi bi-clipboard-check fs-5"></i>
+                        <span>Inventario Físico</span>
+                    </a>
+
+                    <div class="menu-category">Analítica</div>
+                    <a href="#" class="sidebar-item">
+                        <i class="bi bi-file-earmark-bar-graph fs-5"></i>
+                        <span>Reportes e Indicadores</span>
+                    </a>
+
+                    <div class="menu-category">Seguridad</div>
+                    <a href="#" class="sidebar-item">
+                        <i class="bi bi-shield-lock fs-5"></i>
                         <span>Usuarios y Roles</span>
                     </a>
                 </div>
@@ -171,26 +203,22 @@
             </div>
         </nav>
 
-        <!-- ÁREA DE TRABAJO DERECHA -->
+        <!-- CONTENIDO PRINCIPAL -->
         <div class="app-main">
-            <!-- Header superior limpio -->
             <header class="app-header">
-                <div class="fw-bold text-dark fs-5">Sistema de Gestión de Activos Fijos</div>
+                <div class="fw-bold text-dark fs-5">Sistema Integral de Control de Activos Fijos Escolares</div>
                 <div class="user-info">
                     <i class="bi bi-person-circle fs-4 text-primary"></i>
                     <span>@Context.Session.GetString("UsuarioLogueado")</span>
                 </div>
             </header>
 
-            <!-- Contenido dinámico (Aquí se inyecta el Index.cshtml) -->
             <main class="app-content">
                 @RenderBody()
             </main>
         </div>
-
     </div>
 
-    <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
